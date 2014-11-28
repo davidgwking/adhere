@@ -1,0 +1,40 @@
+{
+  // enforcing options
+  "bitwise":    true,
+  "camelcase":  true,
+  "curly":      false,
+  "eqeqeq":     true,
+  "es3":        false,
+  "forin":      true,
+  "freeze":     true,
+  "immed":      true,
+  "indent":     2,
+  "latedef":    false,
+  "newcap":     true,
+  "noarg":      true,
+  "noempty":    true,
+  "nonbsp":     true,
+  "nonew":      true,
+  "plusplus":   false,
+  "quotmark":   "single",
+  "undef":      true,
+  "unused":     true,
+  "strict":     false,
+  "maxlen":     150,
+
+  // relaxing options
+
+  // environments
+  "node":       true,
+
+  // predefined globals
+  "globals": {
+    // mocha
+    "it":         true,
+    "describe":   true,
+    "before":     true,
+    "beforeEach": true,
+    "after":      true,
+    "afterEach":  true
+  }
+}
