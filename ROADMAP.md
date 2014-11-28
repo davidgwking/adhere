@@ -9,4 +9,3 @@
 * can we detect logical incompatibilities?
 * benchmark performance of revalidator vs adhere
 * object recursion keyword
-
