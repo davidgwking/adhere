@@ -108,4 +108,4 @@ Additionally, *adhere* differentiates itself from the RFC in the following ways:
 [travis-image]: https://img.shields.io/travis/davidgwking/adhere.svg?style=flat
 [travis-url]: https://travis-ci.org/davidgwking/adhere
 [coveralls-image]: https://img.shields.io/coveralls/davidgwking/adhere.svg?style=flat
-[coveralls-url]: https://coveralls.io/r/davidgwking/adhere?branch=master
+[coveralls-url]: https://coveralls.io/r/davidgwking/adhere
