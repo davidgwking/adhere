@@ -65,7 +65,7 @@ describe('additionalProperties', function () {
             a: {type: 'number'}
           }
         };
-        var val = {a: 1, b: 2};
+        var val = {a: 1, b: 2, c: 3};
 
         var result = adhere.validate(val, schema);
         expect(result.valid).to.eql(false);
@@ -79,7 +79,7 @@ describe('additionalProperties', function () {
             '^a$': {type: 'number'}
           }
         };
-        var val = {a: 1, b: 2};
+        var val = {a: 1, b: 2, c: 4};
 
         var result = adhere.validate(val, schema);
         expect(result.valid).to.eql(false);
@@ -96,7 +96,7 @@ describe('additionalProperties', function () {
             '^b$': {type: 'number'}
           }
         };
-        var val = {a: 1, b: 2, c: 3};
+        var val = {a: 1, b: 2, c: 3, d: true};
 
         var result = adhere.validate(val, schema);
         expect(result.valid).to.eql(false);
