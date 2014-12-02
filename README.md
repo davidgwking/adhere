@@ -85,7 +85,7 @@ When reporting errors, the '$' namespace refers the root of the value passed for
   message: 'value does not have required property' } ] }
   ```
 
-  ### Schema Errors
+### Schema Errors
 
   If a schema contains structural flaws, a schema error message is returned. Not
 
