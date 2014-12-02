@@ -346,9 +346,10 @@ The minimum number of allowable properties.
 
 #### dependencies
 
-There are two types of dependencies: property and schema. Dependencies are only tested if a value associated with the property name exists.
+There are two types of dependencies: **property** and **schema**. Dependencies are only tested if a value associated with the property name exists.
 
-A property dependency is a mapping of property name to array of property name.
+A **property dependency** is a mapping of property name to array of property names. The property is only valid if all of its dependencies are also valid. Property dependencies can reference patternProperties.
+
 ```js
 {
   type: 'object',
@@ -360,12 +361,12 @@ A property dependency is a mapping of property name to array of property name.
   dependencies: {
     // property `a` is valid only if both `b` and `c` are valid
     // only tested if `a` is provided
-    a: ['b']
+    a: ['b', 'c']
   }
 }
 ```
 
-A schema dependency requires the parent object to in order for the property to be valid.
+A **schema dependency** is valid if the parent object satisfies a sub-schema.
 
 ```js
 {
