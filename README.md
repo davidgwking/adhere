@@ -66,7 +66,7 @@ Default error messages can be overriden via the `messages` property.
   },
   additionalProperties: false,
   messages: {
-    additionalProperties: 'whoa, whoa, whoa. too many properties'
+    additionalProperties: 'whoa, whoa, whoa. unexpected properties'
   }
 };
 
@@ -82,7 +82,7 @@ Default error messages can be overriden via the `messages` property.
   keyword: 'additionalProperties',
   actual: 'b',
   expected: false,
-  message: 'value has unexpected property' },
+  message: 'whoa, whoa, whoa. unexpected properties' },
   { namespace: '$',
   keyword: 'required',
   actual: 'a',
@@ -122,6 +122,20 @@ Alternatively, `type` can be an array of types.
 ```js
 {
   type: ['object', 'array']
+}
+```
+
+#### messages
+
+The `messages` keyword allows the user to override default error messages.
+
+```js
+{
+  type: 'object',
+  additionalProperties: false,
+  messages: {
+    additionalProperties: 'whoa, whoa, whoa. unexpected properties'
+  }
 }
 ```
 
@@ -564,7 +578,7 @@ Additionally, *adhere* differentiates itself from the RFC in the following ways:
 * `conform`
   * useful for situations when your validation outcome is dependent on a sibling property and/or programmatic validation is necessary
   * the `dependencies` keyword offers a schema dependency option, but this type of heavy lifting is not always necessary
-* messages
+* `messages`
   * custom messages for object properties that fail validation for one reason or another
 
 [travis-image]: https://img.shields.io/travis/davidgwking/adhere.svg?style=flat&branch=master
