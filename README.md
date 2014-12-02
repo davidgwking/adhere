@@ -114,10 +114,12 @@ All schemas and sub-schemas must provide a `type` property. Available types incl
 }
 ```
 
-Alternatively, `type` can be an array of types.
+Alternatively, `type` can be an array of types. The first type that is matched will be used for further validation.
 
 ```js
 {
+  // first try object, then try array
+  // if neither object nor array, value is invalid
   type: ['object', 'array']
 }
 ```
