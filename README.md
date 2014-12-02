@@ -223,6 +223,17 @@ Expected to be an array of schemas. The value must satisfy only one of the decla
 
 #### properties
 
+A mapping of properties to sub-schemas. Properties that are not enumerated within this dictionary will not be tested (see [additionalProperties](####additionalProperties)).
+
+```js
+{
+  type: 'object',
+  properties: {
+    a: {type: 'null'}
+  }
+}
+```
+
 #### patternProperties
 
 #### required
