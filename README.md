@@ -17,6 +17,24 @@ Available types include the following: `object`, `array`, `string`, `number`, `i
 
 ## Usage
 
+```js
+> var adhere = require('adhere');
+> var schema = {type: 'object'};
+> var obj = {test: true};
+> adhere.validate(obj, schema);
+{ valid: true, errors: [] }
+> adhere.validate(1, schema);
+{ valid: false,
+  errors:
+  [ { namespace: '$',
+  keyword: 'type',
+  actual: 1,
+  expected: 'object',
+  message: 'value does not satisfy type' } ] }
+```
+
+
+
 ## Schema Composition
 
 ### Universal Keywords
