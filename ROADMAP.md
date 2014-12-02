@@ -1,4 +1,4 @@
-# Roadmap
+# Initial Release
 * behavioral test cases
 * schema validation and tests
 * common validator constructor
@@ -6,6 +6,7 @@
 * string formats
 * npm publishing
 
+# Future
 * tool that reduces friction of migrating from revalidator
 * detect structural incompatibilities
 * can we detect logical incompatibilities?
