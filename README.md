@@ -453,7 +453,7 @@ Either a string regular expression pattern or a regular expression object. The v
 ```js
 {
   type: 'string',
-  pattern: /^adhere$/i
+  pattern: /^adhere$/ // or '^adhere$'
 }
 ```
 
