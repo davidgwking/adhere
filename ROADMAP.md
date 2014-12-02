@@ -1,10 +1,10 @@
 # Initial Release
 * behavioral test cases
-* common validator constructor
 * proper error documentation
-* schema validation and tests
-* string formats
+* common validator constructor
+* string formats and tests
 * refactor away mout dependency
+* schema validation and tests
 * npm publishing
 
 # Future
