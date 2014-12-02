@@ -15,27 +15,86 @@ A simple type-agnostic validation engine provides [common validation keywords](h
 
 Available types include the following: `object`, `array`, `string`, `number`, `integer`, `boolean`, and `null`.
 
+## Schema Composition
+
+Schemas are objects that are expected to have a `type` property. Schemas are comprised
+
+```js
+{
+  // value can be an object or null
+  type: ['object', 'null'],
+  // object-specific validation keywords
+  properties: {
+    // property `a` is both a number and required
+    a: {type: 'number', required: true}
+  },
+  additionalProperties: false // only property `a` is allowed
+}
+```
+
 ## Usage
+
+*adhere* exports a single function, `validate`, that accepts a value and a schema and returns whether the object adhered to the schema and any errors encountered during validation.
 
 ```js
 > var adhere = require('adhere');
+
 > var schema = {type: 'object'};
+
 > var obj = {test: true};
+
 > adhere.validate(obj, schema);
 { valid: true, errors: [] }
-> adhere.validate(1, schema);
-{ valid: false,
-  errors:
-  [ { namespace: '$',
-  keyword: 'type',
-  actual: 1,
-  expected: 'object',
-  message: 'value does not satisfy type' } ] }
 ```
 
+### Errors
 
+When reporting errors, the '$' namespace refers the root of the value passed for validation.
 
-## Schema Composition
+```js
+> var schema =  {
+  type: 'object',
+  properties: {
+    a: {type: 'boolean', required: true},
+    c: {type: 'object', additionalProperties: false}
+  },
+  additionalProperties: false
+};
+
+> adhere.validate({b: false, c:{d: true}}, schema);
+{ valid: false,
+  errors:
+  [ { namespace: '$.c',
+  keyword: 'additionalProperties',
+  actual: 'd',
+  expected: false,
+  message: 'value has unexpected property' },
+  { namespace: '$',
+  keyword: 'additionalProperties',
+  actual: 'b',
+  expected: false,
+  message: 'value has unexpected property' },
+  { namespace: '$',
+  keyword: 'required',
+  actual: 'a',
+  expected: undefined,
+  message: 'value does not have required property' } ] }
+  ```
+
+  ### Schema Errors
+
+  If a schema contains structural flaws, a schema error message is returned. Not
+
+  ```js
+  > adhere.validate(1, 'schema');
+  { valid: false,
+    errors:
+    [ { namespace: '$',
+    keyword: 'type',
+    actual: 1,
+    expected: undefined,
+    message: 'schema error: no type provided' } ] }
+    ```
 
 ### Universal Keywords
 
