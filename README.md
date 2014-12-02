@@ -236,45 +236,307 @@ A mapping of properties to sub-schemas. Properties that are not enumerated withi
 
 #### patternProperties
 
+A mapping of regular expression pattern strings to sub-schemas. Like `properties`, pattern properties that are not enumerated within the dictionary will not be tested.
+
+```js
+{
+  type: 'object',
+  patternProperties: {
+    '^a$': {type: 'null'}
+  }
+}
+```
+
+Pattern properties can be declared alongside `properties`. Any property names visited when testing `properties` will not be tested against `patternProperties` schemas, even if the name satisfies the regular expression.
+
+```js
+> var schema = {
+    type: 'object',
+    properties: {
+      b: {type: 'null'}
+    },
+    patternProperties: {
+      // only 'a' will be tested since 'b' is enumerated in
+      // `properties`
+      '^[ab]$': {type: 'number'}
+    }
+  };
+
+> adhere.validate({a: 3, b: null}, schema);
+{ valid: true, errors: [] }
+```
+
 #### required
+
+A boolean value that indicates whether a property or pattern property must exist.
+
+Within the context of `patternProperties`, this keyword indicates that at least one value must exist at a property name that satisfies the regular expression.
+
+```js
+{
+  type: 'object',
+  properties: {
+    // a must exist
+    a: {type: 'number', required: true}
+  },
+  patternProperties: {
+    // some combo of properties 'b', 'c', and 'd' must exist
+    '^[bcd]$': {type: 'number', required: true}
+  }
+};
+```
 
 #### additionalProperties
 
-#### dependencies
+Indicates whether unvisited properties are allowed to exist. Unvisited properties are those that are not defined in `properties` and do not match `patternProperties`. Defaults to `true`.
+
+```js
+{
+  type: 'object',
+  // must be an empty object
+  additionalProperties: false
+};
+```
 
 #### maxProperties
 
+The maximum number of allowable properties.
+
+```js
+{
+  type: 'object',
+  // must have at most one property
+  maxProperties: 1
+};
+```
+
 #### minProperties
+
+The minimum number of allowable properties.
+
+```js
+{
+  type: 'object',
+  // must have at least one property
+  minProperties: 1
+};
+```
+
+#### dependencies
+
+There are two types of dependencies: property and schema. Dependencies are only tested if a value associated with the property name exists.
+
+A property dependency is a mapping of property name to array of property name.
+```js
+{
+  type: 'object',
+  properties: {
+    a: {type: 'number'},
+    b: {type: 'number', enum: [1]},
+    c: {type: 'number'}
+  },
+  dependencies: {
+    // property 'a' is valid only if both 'b' and 'c' are valid
+    // only tested if 'a' is provided
+    a: ['b']
+  }
+}
+```
+
+A schema dependency requires the parent object to in order for the property to be valid.
+
+```js
+{
+  type: 'object',
+  properties: {
+    a: {type: 'number'},
+    b: {type: 'string'}
+  },
+  dependencies: {
+    b: {
+      // property 'b' is only valid if 'a' is 1
+      // only tested if 'b' is provided
+      type: 'object',
+      properties: {
+        a: {type: 'integer', enum: [1]}
+      }
+    }
+  }
+}
+```
 
 ### Array Keywords
 
 #### items
 
+Either a schema or an array of schemas.
+
+If the value of `items` is a single schema, all array elements must satisfy this schema.
+
+```js
+{
+  type: 'array',
+  items: {
+    // array of numbers
+    type: 'number'
+  }
+}
+```
+
+Alternatively, if the value of `items` is an array of schemas, array elements are tested one-by-one against the schemas. Elements that are not enumerated will not be validated.
+
+```js
+{
+  type: 'array',
+  items: [
+    // first element is a number and the second is null
+    {type: 'number'},
+    {type: 'null'}
+  ]
+}
+```
+
 #### additionalItems
+
+The `additionalItems` keyword is ignored unless `items` is an array of schemas. If `false`, this keyword disallows the existence of elements that do not have an enumerated schema. Defaults to `true`.
+
+```js
+{
+  type: 'array',
+  items: [
+    // array of one element that is a number
+    {type: 'number'}
+  ],
+  additionalItems: true
+}
+```
 
 #### maxItems
 
+The array's length must be less than or equal to the declared value.
+
+```js
+{
+  type: 'array',
+  maxItems: 100
+}
+```
+
 #### minItems
 
+The array's length must be greater than or equal to the declared value.
+
+```js
+{
+  type: 'array',
+  minItems: 0
+}
+```
+
 #### uniqueItems
+
+If `true`, arrays with duplicate values are deemed invalid.
+
+```js
+{
+  type: 'array',
+  uniqueItems: true
+}
+```
 
 ### String Keywords
 
 #### pattern
 
+Either a string regular expression pattern or a regular expression object. The value must satisfy the regular expression.
+
+```js
+{
+  type: 'string',
+  pattern: /^adhere$/i
+}
+```
+
 #### maxLength
 
+The string's length must be less than or equal to the declared value.
+
+```js
+{
+  type: 'string',
+  maxLength: 100
+}
+```
+
 #### minLength
+
+The string's length must be greater than or equal to the declared value.
+
+```js
+{
+  type: 'string',
+  minLength: 0
+}
+```
 
 ### Number and Integer Keywords
 
 #### maximum
 
+The number must be less than or equal to the declared value.
+
+```js
+{
+  type: 'number',
+  maximum: 3
+}
+```
+
+Alternatively, `exclusiveMaximum` requires that the number be strictly less than the declared value.
+
+```js
+{
+  type: 'number',
+  maximum: 3,
+  exclusiveMaximum: true
+}
+```
+
 #### minimum
+
+The number must be greater than or equal to the declared value.
+
+```js
+{
+  type: 'number',
+  minimum: 10
+}
+```
+
+Alternatively, `exclusiveMinimum` requires that the number be strictly greater than the declared value.
+
+```js
+{
+  type: 'number',
+  minimum: 10,
+  exclusiveMinimum: true
+}
+```
 
 #### mulitipleOf
 
+The number must be a multiple of the declared value.
+
+```js
+{
+  type: 'integer',
+  multipleOf: 3
+}
+```
+
 ### Boolean and Null Keywords
+
+`boolean` and `null` types do not have any type-specific keywords.
 
 ## JSONSchema Compliance
 
