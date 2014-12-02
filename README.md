@@ -144,7 +144,7 @@ The value must not satisfy this scheme.
 
 #### conform
 
-A function that should return a boolean
+A function that should return a `boolean` indicating whether the value conforms to the programmatic constraints.
 
 ```js
 {
