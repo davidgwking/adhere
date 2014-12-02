@@ -83,13 +83,13 @@ Type-specific keywords allow users to declare multiple possible types for data. 
   actual: 'a',
   expected: undefined,
   message: 'value does not have required property' } ] }
-  ```
+```
 
 ### Schema Errors
 
   If a schema contains structural flaws, a schema error message is returned. Testing values against schemas that do not have a `type` property results in a schema error.
 
-  ```js
+```js
   > adhere.validate(1, 'schema');
   { valid: false,
     errors:
@@ -98,7 +98,7 @@ Type-specific keywords allow users to declare multiple possible types for data. 
     actual: 1,
     expected: undefined,
     message: 'schema error: no type provided' } ] }
-    ```
+```
 
 ### Universal Keywords
 
