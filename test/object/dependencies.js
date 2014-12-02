@@ -22,7 +22,7 @@ describe('dependencies', function () {
       expect(result.valid).to.eql(true);
     });
 
-    it('invalid when cannot validate property as not in schema', function () {
+    it('invalid when dependencies is invalid', function () {
       var schema = {
         type: 'object',
         properties: {

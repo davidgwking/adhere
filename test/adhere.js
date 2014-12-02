@@ -1,10 +1,10 @@
 var expect = require('chai').expect;
 var adhere = require('../lib/adhere');
+var validators = require('../lib/validators');
 
 describe('adhere', function () {
 
   it('is expected to export builtin validators', function () {
-    var validators = adhere.validators;
     expect(validators).to.be.instanceOf(Object);
 
     var validatorNames = Object.keys(validators);

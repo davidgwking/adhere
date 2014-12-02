@@ -1,6 +1,4 @@
 # Roadmap
-* standard error generation and custom messages
-* full keyword documentation
 * behavioral test cases
 * schema validation and tests
 * npm publishing
