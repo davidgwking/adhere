@@ -53,7 +53,7 @@ Type-specific keywords allow users to declare multiple possible types for data. 
 
 ### Errors
 
-When reporting errors, the '$' namespace refers the root of the value passed for validation.
+*adhere* returns an array of rules violations. When reporting errors, the '$' namespace refers the root of the value passed for validation.
 
 ```js
 > var schema =  {
@@ -87,7 +87,7 @@ When reporting errors, the '$' namespace refers the root of the value passed for
 
 ### Schema Errors
 
-  If a schema contains structural flaws, a schema error message is returned. Not
+  If a schema contains structural flaws, a schema error message is returned. Testing values against schemas that do not have a `type` property results in a schema error.
 
   ```js
   > adhere.validate(1, 'schema');
