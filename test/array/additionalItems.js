@@ -37,7 +37,7 @@ describe('additionalItems', function () {
       additionalItems: false
     };
 
-    var values = [[1, 'a', 3, 'test']];
+    var values = [[1, 'a', null, 'test', 'derp']];
     values.forEach(function (val) {
       var result = adhere.validate(val, schema);
       expect(result.valid).to.eql(false);
