@@ -13,7 +13,7 @@ Unlike the JSONSchema specification, however, *adhere* is highly opinionated wit
 
 A simple type-agnostic validation engine provides [common validation keywords](http://json-schema.org/latest/json-schema-validation.html#anchor75). This project ships with numerous built\-in type validators that are executed by this engine.
 
-Available types include the following: `object`, `array`, `string`, `number`, `integer`, `boolean`, and `null`.
+Available types include `object`, `array`, `string`, `number`, `integer`, `boolean`, and `null`.
 
 ## Schema Composition
 
@@ -104,17 +104,120 @@ Type-specific keywords allow users to declare multiple possible types for data. 
 
 #### type
 
+All schemas and sub-schemas must provide a `type` property. Available types include `object`, `array`, `string`, `number`, `integer`, `boolean`, and `null`.
+
+```js
+{
+  type: 'object'
+}
+```
+
+Alternatively, `type` can be an array of types.
+
+```js
+{
+  type: ['object', 'array']
+}
+```
+
 #### enum
+
+The value must be one of the elements within the `enum` property.
+
+```js
+{
+  // value must be a number with value 1
+  type: 'number', enum: [1]
+}
+```
 
 #### not
 
+The value must not satisfy this scheme.
+
+```js
+{
+  // value must be a number, but must not be 1
+  type: 'number', not: {type: 'number', enum: [1]}
+}
+```
+
 #### conform
+
+A function that should return a boolean
+
+```js
+{
+  type: 'number',
+  conform: function (a) {
+    // valid is value is even
+    return !(a % 2);
+  }
+}
+```
+
+If a sub-schema declares the `conform` property, the parent is passed as a second argument to the function.
+
+```js
+{
+  type: 'object',
+  properties: {
+    a: {
+      type: 'number',
+      conform: function (a, parent) {
+        // `a` is only valid if sibling proprety `b` is even
+        return !(parent.b % 2);
+      }
+    },
+    b: {type: 'number'}
+  }
+}
+```
 
 #### anyOf
 
+Expected to be an array of schemas. The value must satisfy these schemas.
+
+```js
+{
+  type: 'number',
+  anyOf: [
+    // value <= 10 or 20 <= value<= 100
+    {type: 'number', maximum: 10},
+    {type: 'number', minimum: 20, maximum: 100}
+  ]
+}
+```
+
 #### allOf
 
+Expected to be an array of schemas. The value must satisfy all of the declared schemas.
+
+```js
+{
+  type: 'number',
+  allOf: [
+    // value must be a multiple of 2 and 3
+    {type: 'number', multipleOf: 2},
+    {type: 'number', multipleOf: 3}
+  ]
+}
+```
+
 #### oneOf
+
+Expected to be an array of schemas. The value must satisfy only one of the declared schemas
+
+```js
+{
+  type: 'number',
+  oneOf: [
+    // value must be either a multiple of 2 or 5
+    {type: 'number', multipleOf: 2},
+    {type: 'number', multipleOf: 5}
+  ]
+}
+```
 
 ### Object Keywords
 
