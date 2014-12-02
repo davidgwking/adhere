@@ -245,12 +245,15 @@ The `messages` keyword allows the user to override default error messages.
 A mapping of properties to sub-schemas. Properties that are not enumerated within this dictionary will not be tested (see [additionalProperties](#additionalproperties)).
 
 ```js
-{
+var schema = {
   type: 'object',
   properties: {
     a: {type: 'null'}
   }
-}
+};
+
+> adhere.validate({a: null, b: 'adhere'}, schema);
+{ valid: true, errors: [] }
 ```
 
 #### patternProperties
