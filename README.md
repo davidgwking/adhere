@@ -125,20 +125,6 @@ Alternatively, `type` can be an array of types.
 }
 ```
 
-#### messages
-
-The `messages` keyword allows the user to override default error messages.
-
-```js
-{
-  type: 'object',
-  additionalProperties: false,
-  messages: {
-    additionalProperties: 'whoa, whoa, whoa. unexpected properties'
-  }
-}
-```
-
 #### enum
 
 The value must be one of the elements within the `enum` property.
@@ -235,6 +221,20 @@ Expected to be an array of schemas. The value must satisfy only one of the decla
     {type: 'number', multipleOf: 2},
     {type: 'number', multipleOf: 5}
   ]
+}
+```
+
+#### messages
+
+The `messages` keyword allows the user to override default error messages.
+
+```js
+{
+  type: 'object',
+  additionalProperties: false,
+  messages: {
+    additionalProperties: 'whoa, whoa, whoa. unexpected properties'
+  }
 }
 ```
 
