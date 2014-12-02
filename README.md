@@ -278,7 +278,7 @@ Pattern properties can be declared alongside `properties`. Any property names vi
       b: {type: 'null'}
     },
     patternProperties: {
-      // only 'a' will be tested since 'b' is enumerated in
+      // only `a` will be tested since `b` is enumerated in
       // `properties`
       '^[ab]$': {type: 'number'}
     }
@@ -298,11 +298,11 @@ Within the context of `patternProperties`, this keyword indicates that at least 
 {
   type: 'object',
   properties: {
-    // a must exist
+    // `a` must exist
     a: {type: 'number', required: true}
   },
   patternProperties: {
-    // some combo of properties 'b', 'c', and 'd' must exist
+    // some combo of properties `b`, `c`, and `d` must exist
     '^[bcd]$': {type: 'number', required: true}
   }
 };
@@ -358,8 +358,8 @@ A property dependency is a mapping of property name to array of property name.
     c: {type: 'number'}
   },
   dependencies: {
-    // property 'a' is valid only if both 'b' and 'c' are valid
-    // only tested if 'a' is provided
+    // property `a` is valid only if both `b` and `c` are valid
+    // only tested if `a` is provided
     a: ['b']
   }
 }
@@ -376,8 +376,8 @@ A schema dependency requires the parent object to in order for the property to b
   },
   dependencies: {
     b: {
-      // property 'b' is only valid if 'a' is 1
-      // only tested if 'b' is provided
+      // property `b` is only valid if `a` is 1
+      // only tested if `b` is provided
       type: 'object',
       properties: {
         a: {type: 'integer', enum: [1]}
