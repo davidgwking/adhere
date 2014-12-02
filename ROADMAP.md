@@ -8,6 +8,7 @@
 * npm publishing
 
 # Future
+* browser support
 * tool that reduces friction of migrating from revalidator
 * detect structural incompatibilities
 * can we detect logical incompatibilities?
