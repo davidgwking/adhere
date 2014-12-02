@@ -553,6 +553,8 @@ The number must be a multiple of the declared value.
 }
 ```
 
+If `multipleOf` is zero, *adhere* will return a schema error.
+
 ### Boolean and Null Keywords
 
 `boolean` and `null` types do not have any type-specific keywords.
