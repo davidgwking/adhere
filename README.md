@@ -55,6 +55,8 @@ Type-specific keywords allow users to declare multiple possible types for data. 
 
 *adhere* returns an array of rules violations. When reporting errors, the '$' namespace refers the root of the value passed for validation.
 
+Default error messages can be overriden via the `messages` property.
+
 ```js
 > var schema =  {
   type: 'object',
@@ -62,7 +64,10 @@ Type-specific keywords allow users to declare multiple possible types for data. 
     a: {type: 'boolean', required: true},
     c: {type: 'object', additionalProperties: false}
   },
-  additionalProperties: false
+  additionalProperties: false,
+  messages: {
+    additionalProperties: 'whoa, whoa, whoa. too many properties'
+  }
 };
 
 > adhere.validate({b: false, c:{d: true}}, schema);
