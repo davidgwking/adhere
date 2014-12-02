@@ -1,8 +1,8 @@
 # Initial Release
 * behavioral test cases
-* schema validation and tests
 * common validator constructor
 * proper error documentation
+* schema validation and tests
 * string formats
 * npm publishing
 
