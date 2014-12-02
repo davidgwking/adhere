@@ -5,7 +5,11 @@
   "author": "David King <davidgwking@gmail.com>",
   "license": "MIT",
   "main": "lib/adhere.js",
-  "keywords": [],
+  "keywords": [
+    "validate",
+    "validation",
+    "revalidator"
+  ],
   "engines": {
     "node": ">= 0.10.0"
   },
