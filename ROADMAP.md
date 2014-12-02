@@ -4,6 +4,7 @@
 * proper error documentation
 * schema validation and tests
 * string formats
+* refactor away mout dependency
 * npm publishing
 
 # Future
