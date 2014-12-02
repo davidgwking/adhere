@@ -2,17 +2,16 @@
   "name": "adhere",
   "version": "0.0.1",
   "description": "a schema-based data validator for node",
-  "author": "David King <davidgwking@gmail.com>",
   "license": "MIT",
-  "main": "lib/adhere.js",
+  "author": "David King <davidgwking@gmail.com>",
+  "maintainers": [
+    "David King <davidgwking@gmail.com>"
+  ],
   "keywords": [
     "validate",
     "validation",
     "revalidator"
   ],
-  "engines": {
-    "node": ">= 0.10.0"
-  },
   "repository": {
     "type": "git",
     "url": "http://github.com/davidgwking/adhere.git"
@@ -27,9 +26,12 @@
     "jshint": "^2.5.10",
     "mocha": "^2.0.1"
   },
+  "main": "lib/adhere.js",
   "scripts": {
     "test": "make clean && make lint && make test",
     "test-travis": "make clean && make lint && make test-travis"
   },
-  "files": []
+  "engines": {
+    "node": ">= 0.8.0"
+  }
 }
