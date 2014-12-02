@@ -17,15 +17,19 @@ Available types include the following: `object`, `array`, `string`, `number`, `i
 
 ## Schema Composition
 
-Schemas are objects that are expected to have a `type` property. Schemas are comprised
+Schemas are objects that are expected to have a `type` property. Validation keywords are rules declarations.
+
+There exists two types of keywords: universal and type-specific. Universal keywords (like `type`) are test against all values. Type-specific keywords are only tested after the type of the value is determined.
+
+Type-specific keywords allow users to declare multiple possible types for data. In the following example schema, either an `Object` or `null` would suffice. Object-specific validation rules are only applied once a value is determined to be an `Object`.
 
 ```js
 {
   // value can be an object or null
   type: ['object', 'null'],
-  // object-specific validation keywords
+  // start: object-specific validation keywords
   properties: {
-    // property `a` is both a number and required
+    // property `a` is expect to be a number and must exist
     a: {type: 'number', required: true}
   },
   additionalProperties: false // only property `a` is allowed
