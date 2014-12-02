@@ -42,11 +42,8 @@ Type-specific keywords allow users to declare multiple possible types for data. 
 
 ```js
 > var adhere = require('adhere');
-
 > var schema = {type: 'object'};
-
 > var obj = {test: true};
-
 > adhere.validate(obj, schema);
 { valid: true, errors: [] }
 ```
