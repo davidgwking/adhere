@@ -45,7 +45,7 @@ gulp.task('lint', function() {
 
 gulp.task('test', ['clean', 'lint'], function() {
   return gulp.src([TESTS], {read: false})
-    .pipe(mocha({reporter: MOCHA_REPORTER, 'ignoreLeaks': false}));
+    .pipe(mocha({reporter: MOCHA_REPORTER, ignoreLeaks: false}));
 });
 
 gulp.task('test-coverage', ['clean', 'lint'], function(cb) {
@@ -54,7 +54,7 @@ gulp.task('test-coverage', ['clean', 'lint'], function(cb) {
     .pipe(istanbul.hookRequire())
     .on('finish', function () {
       gulp.src([TESTS])
-        .pipe(mocha({reporter: MOCHA_REPORTER, 'ignoreLeaks': false}))
+        .pipe(mocha({reporter: MOCHA_REPORTER, ignoreLeaks: false}))
         .pipe(istanbul.writeReports({dir: COVERAGE_OUT, reporters: COVERAGE_REPORTERS}))
         .once('end', cb);
     });
