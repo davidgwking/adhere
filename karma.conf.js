@@ -1,6 +1,3 @@
-var BROWSERS = ['Firefox', 'PhantomJS'];
-if (!process.env.TRAVIS) BROWSERS.push('Chrome');
-
 module.exports = function(config) {
   config.set({
     frameworks: ['browserify', 'mocha'],
@@ -15,7 +12,6 @@ module.exports = function(config) {
       'test/**/*.js': ['browserify']
     },
 
-    browsers: BROWSERS,
     logLevel: 'LOG_DEBUG',
 
     singleRun: true,
