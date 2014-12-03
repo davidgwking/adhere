@@ -1,11 +1,12 @@
 # Initial Release
 * behavioral test cases
 * proper error documentation
-* common validator constructor
 * string formats and tests
 * refactor away mout dependency
 * schema validation and tests
+* browser compatibily
 * npm publishing
+* bower publishing
 
 # Future
 * tool that reduces friction of migrating from revalidator
