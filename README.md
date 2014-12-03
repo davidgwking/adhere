@@ -7,7 +7,7 @@
 
 This project is inspired by the [revalidator](https://github.com/flatiron/revalidator) project, so I must extend a shout out to those guys!
 
-*adhere* is a schema\-based data validator for node that strives to empower developers with a robust, reliable, and, most importantly, simple data validation dependency. *adhere's* schema validation structure is heavily influenced by  [JSONSchema](http://json-schema.org/latest/json-schema-validation.html)
+*adhere* is a simple schema\-based data validator. *adhere's* schema validation structure is heavily influenced by  [JSONSchema](http://json-schema.org/latest/json-schema-validation.html)
 
 Unlike the JSONSchema specification, however, *adhere* is highly opinionated with respect to type\-defined keyword enforcement. *adhere* will allow direct validation against primitive (string, number, integer, boolean), reference (array and object), and null data types against declared schemas. In addition to data validation, *adhere* provide a means for validating schemas.
 

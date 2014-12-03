@@ -4,12 +4,10 @@
 * string formats and tests
 * refactor away mout dependency
 * schema validation and tests
-* browser compatibility
 * npm publishing
 * bower publishing
 
 # Future
-* browser support
 * tool that reduces friction of migrating from revalidator
 * detect structural incompatibilities
 * can we detect logical incompatibilities?
