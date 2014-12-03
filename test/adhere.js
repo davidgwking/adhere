@@ -4,7 +4,7 @@ var validators = require('../lib/validators');
 
 describe('adhere', function () {
 
-  it('is expected to export builtin validators', function () {
+  it('is expected to have builtin validators', function () {
     expect(validators).to.be.instanceOf(Object);
 
     var validatorNames = Object.keys(validators);
