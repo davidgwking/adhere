@@ -1,4 +1,4 @@
-TESTS = test/adhere.js test/universal/* test/object/* test/*
+TESTS = test/*
 LINTABLE = ./lib ./test
 
 clean:
