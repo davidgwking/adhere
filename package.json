@@ -1,7 +1,7 @@
 {
   "name": "adhere",
   "version": "0.0.1",
-  "description": "a schema-based data validator for node",
+  "description": "a schema-based data validator",
   "license": "MIT",
   "author": "David King <davidgwking@gmail.com>",
   "maintainers": [
