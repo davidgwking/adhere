@@ -4,7 +4,7 @@
 * string formats and tests
 * refactor away mout dependency
 * schema validation and tests
-* browser compatibily
+* browser compatibility
 * npm publishing
 * bower publishing
 
