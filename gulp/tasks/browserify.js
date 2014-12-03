@@ -14,13 +14,13 @@ module.exports = function() {
   var bundle = function() {
     var bundleName = constants.PACKAGE_NAME;
     return bundler
-    .bundle()
-    .pipe(source(bundleName))
-    .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest(constants.BROWSERIFY_OUT));
+      .bundle()
+      .pipe(source(bundleName))
+      .pipe(buffer())
+      .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(uglify())
+      .pipe(sourcemaps.write('./'))
+      .pipe(gulp.dest(constants.BROWSERIFY_OUT));
   };
   return bundle();
 };
