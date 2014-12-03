@@ -1,9 +1,3 @@
-ROOT = lib
-BUILD = build
-TESTS = test/*
-MAIN = adhere.js
-LINTABLE = lib test
-
 clean:
 	rm -rf coverage build
 
@@ -14,21 +8,22 @@ dev:
 lint:
 	./node_modules/.bin/jshint \
 		--exclude node_modules \
-		$(LINTABLE)
+		lib test
 
 browserify:
-	mkdir $(BUILD)
+	rm -rf build
+	mkdir -p build/lib
 	./node_modules/.bin/browserify \
-		$(ROOT)/$(MAIN) -o $(BUILD)/$(MAIN)
+		lib/adhere.js -o build/lib/adhere.js
 
 test:
 	./node_modules/.bin/_mocha \
 		--reporter min --bail --check-leaks \
-		$(TESTS)
+		test/*
 
 test-travis:
 	./node_modules/.bin/istanbul cover \
 		node_modules/mocha/bin/_mocha --report lcovonly -- --reporter min --check-leaks \
-		$(TESTS)
+		test/*
 
 .PHONY: clean dev lint browserify test test-travis
