@@ -1,6 +1,6 @@
 // constants
 var PACKAGE = module.exports.PACKAGE = require('../package.json');
-module.exports.PACKAGE_NAME = PACKAGE.version + '.' + PACKAGE.name + '.' + 'min.js';
+module.exports.PACKAGE_NAME = [PACKAGE.version, PACKAGE.name, 'min.js'].join('.');
 var TESTS = module.exports.TESTS = 'test/**/*.js';
 var SOURCE = module.exports.SOURCE = 'lib/**/*.js';
 module.exports.CLEANABLE = ['dist', 'coverage'];
