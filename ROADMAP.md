@@ -2,7 +2,6 @@
 * behavioral test cases
 * proper error documentation
 * string formats and tests
-* refactor away mout dependency
 * schema validation and tests
 * npm publishing
 * bower publishing
