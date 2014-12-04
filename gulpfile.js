@@ -1,6 +1,6 @@
-var runSequence = require('run-sequence');
-
-// construct set of default browsers based on environment variables
+/**
+ * browser detection
+ */
 var defaultBrowsers = (function (){
   var browsers = ['PhantomJS']; // always test against phantom
   if (process.env.CHROME_BIN) browsers.push('Chrome');
@@ -10,16 +10,19 @@ var defaultBrowsers = (function (){
   if (process.env.IE_BIN) browsers.push('IE');
   return browsers.join(',');
 })();
-
-// parse command line options
 var knownOptions = {
   string: 'browsers',
   default: { browsers: defaultBrowsers }
 };
 module.exports.argv = require('minimist')(process.argv.slice(2), knownOptions);
-module.exports.argv.browsers = module.exports.argv.browsers.split(',').map(function (s) {return s.trim();});
+module.exports.argv.browsers = module.exports.argv.browsers
+  .split(',')
+  .map(function (s) {return s.trim();});
 
-// register tasks
+/**
+ * register tasks
+ */
+var runSequence = require('run-sequence');
 var gulp = require('./gulp')([
   'browserify',
   'clean',

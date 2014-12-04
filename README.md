@@ -19,7 +19,7 @@ Available types include `object`, `array`, `string`, `number`, `integer`, `boole
 
 Schemas are objects that are expected to have a `type` property. Validation keywords are rules declarations.
 
-There exists two types of keywords: universal and type-specific. Universal keywords (like `type`) are test against all values. Type-specific keywords are only tested after the type of the value is determined.
+There exists two types of keywords: universal and type-specific. Universal keywords (like `type`) are tested against all values. Type-specific keywords are only tested after the type of the value is determined.
 
 Type-specific keywords allow users to declare multiple possible types for data. In the following example schema, either an `Object` or `null` would suffice. Object-specific validation rules are only applied once a value is determined to be an `Object`.
 
@@ -585,6 +585,23 @@ Additionally, *adhere* differentiates itself from the RFC in the following ways:
   * the `dependencies` keyword offers a schema dependency option, but this type of heavy lifting is not always necessary
 * `messages`
   * custom messages for object properties that fail validation for one reason or another
+
+## Development Notes
+
+```bash
+gulp lint # lint
+gulp test # node tests
+gulp coverage # node tests with coverage
+```
+
+### Browser Tests
+This gulp task will auto-detect browser executables via the following environment variables: `CHROME_BIN`, `SAFARI_BIN`, `FIREFOX_BIN`, `OPERA_BIN`, and `IE_BIN`. PhantomJS is always tested. Specific browsers can be specified as follows:
+
+```bash
+gulp test-browser --browsers PhantomJS,Firefox
+```
+
+Possible browser flags include `Chrome`, `Safari`, `Firefox`, `Opera`, and `IE`.
 
 [travis-image]: https://img.shields.io/travis/davidgwking/adhere.svg?style=flat&branch=master
 [travis-url]: https://travis-ci.org/davidgwking/adhere
