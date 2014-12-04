@@ -1,4 +1,3 @@
-var path = require('path');
 var expect = require('chai').expect;
 var adhere = require('../lib/adhere');
 var validators = require('../lib/validators');
@@ -17,8 +16,7 @@ describe('adhere', function () {
   });
 
   it('should export a function for validating values against schemas', function () {
-    var xport = require(path.join('../', require('../package.json').main));
-    expect(xport.validate).to.be.instanceOf(Function);
+    expect(adhere.validate).to.be.instanceOf(Function);
   });
 
   it('should validate a simple schema', function () {

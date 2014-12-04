@@ -44,7 +44,7 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.0.0"
   },
-  "main": "./lib/adhere.js",
+  "main": "lib/adhere.js",
   "engines": {
     "node": ">= 0.10.0"
   }
