@@ -6,7 +6,7 @@ module.exports = function(config) {
       'test/**/*.js'
     ],
 
-    reporters: ['progress'],
+    reporters: ['dots'],
 
     preprocessors: {
       'test/**/*.js': ['browserify']
