@@ -8,7 +8,7 @@ module.exports.LINTABLE = ['gulpfile.js', 'gulp/**/*.js', 'karma.conf.js', SOURC
 module.exports.WATCHABLE = ['lib/**', 'test/**'];
 
 // task globals
-module.exports.MOCHA_REPORTER = 'dot';
+module.exports.MOCHA_REPORTER = 'spec';
 module.exports.BROWSERIFY_OUT = './dist/js';
 module.exports.COVERAGE_OUT = './coverage';
 module.exports.COVERAGE_REPORTERS = ['lcovonly', 'text', 'text-summary'];

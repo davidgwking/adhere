@@ -3,9 +3,9 @@ var adhere = require('../../lib/adhere');
 
 describe('pattern', function () {
 
-  describe('string', function () {
+  describe('as a string', function () {
 
-    it('valid', function () {
+    it('should validate strings that match the pattern', function () {
       var schema = {
         type: 'string',
         pattern: '^\\d+$'
@@ -18,7 +18,7 @@ describe('pattern', function () {
       });
     });
 
-    it('invalid', function () {
+    it('should invalidate strings that do not match the pattern', function () {
       var schema = {
         type: 'string',
         pattern: '^\\d+$'
@@ -33,9 +33,9 @@ describe('pattern', function () {
 
   });
 
-  describe('regexp', function () {
+  describe('as a RegExp', function () {
 
-    it('valid', function () {
+    it('should validate strings that match the pattern', function () {
       var schema = {
         type: 'string',
         pattern: /^\d+a$/i
@@ -48,7 +48,7 @@ describe('pattern', function () {
       });
     });
 
-    it('invalid', function () {
+    it('should invalidate strings that do not match the pattern', function () {
       var schema = {
         type: 'string',
         pattern: /^\d+$/

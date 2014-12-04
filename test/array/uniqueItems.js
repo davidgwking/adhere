@@ -3,7 +3,7 @@ var adhere = require('../../lib/adhere');
 
 describe('uniqueItems', function () {
 
-  it('valid', function () {
+  it('should validate arrays with unique elements', function () {
     var schema = {
       type: 'array',
       uniqueItems: true
@@ -16,7 +16,7 @@ describe('uniqueItems', function () {
     });
   });
 
-  it('invalid', function () {
+  it('should invalid arrays that do not have unique elements', function () {
     var schema = {
       type: 'array',
       uniqueItems: true

@@ -3,20 +3,20 @@ var adhere = require('../../lib/adhere');
 
 describe('minLength', function () {
 
-  it('valid', function () {
+  it('should validate strings with length greater than or equal to the keyword value', function () {
     var schema = {
       type: 'string',
       minLength: 5
     };
 
-    var values = ['12345'];
+    var values = ['12345', '123456'];
     values.forEach(function (val) {
       var result = adhere.validate(val, schema);
       expect(result.valid).to.eql(true);
     });
   });
 
-  it('invalid', function () {
+  it('should invalidate strings with length less than the keyword value', function () {
     var schema = {
       type: 'string',
       minLength: 5

@@ -4,7 +4,7 @@ var validators = require('../lib/validators');
 
 describe('adhere', function () {
 
-  it('is expected to have builtin validators', function () {
+  it('should have a set of built-in validators', function () {
     expect(validators).to.be.instanceOf(Object);
 
     var validatorNames = Object.keys(validators);
@@ -15,7 +15,7 @@ describe('adhere', function () {
     });
   });
 
-  it('is expected to export a function for validating values against schemas', function () {
+  it('should export a function for validating values against schemas', function () {
     expect(adhere.validate).to.be.instanceOf(Function);
   });
 

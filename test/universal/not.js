@@ -3,7 +3,7 @@ var adhere = require('../../lib/adhere');
 
 describe('not', function () {
 
-  it('valid', function () {
+  it('should validate values that do not satisfy the keyword schema', function () {
     var schema = {
       type: 'number',
       not: {
@@ -16,7 +16,7 @@ describe('not', function () {
     expect(result.valid).to.eql(true);
   });
 
-  it('invalid', function () {
+  it('should invalidate values that satisfy the keyword schema', function () {
     var schema = {
       type: 'number',
       not: {

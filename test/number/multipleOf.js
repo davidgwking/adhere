@@ -3,7 +3,7 @@ var adhere = require('../../lib/adhere');
 
 describe('multipleOf', function () {
 
-  it('valid', function () {
+  it('should validate numbers that are multiples of the keyword value', function () {
     var schema = {
       type: 'number',
       multipleOf: 10
@@ -16,7 +16,7 @@ describe('multipleOf', function () {
     });
   });
 
-  it('invalid', function () {
+  it('should invalidate numbers that are not multiple of the keyword value', function () {
     var schema = {
       type: 'number',
       multipleOf: 7
@@ -29,7 +29,7 @@ describe('multipleOf', function () {
     });
   });
 
-  it('invalid infinity', function () {
+  it('should always invalidate numbers if the keyword value is Infinity', function () {
     var schema = {
       type: 'number',
       multipleOf: Infinity
@@ -42,7 +42,7 @@ describe('multipleOf', function () {
     });
   });
 
-  it('invalid multiple by zero', function () {
+  it('should always invalidate numbers if the keyword value is zero', function () {
     var schema = {
       type: 'number',
       multipleOf: 0
