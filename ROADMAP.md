@@ -1,5 +1,4 @@
 # Initial Release
-* proper error documentation
 * string formats and tests
 * schema validation and tests
 * npm publishing
