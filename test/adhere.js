@@ -1,10 +1,11 @@
+var path = require('path');
 var expect = require('chai').expect;
 var adhere = require('../lib/adhere');
 var validators = require('../lib/validators');
 
 describe('adhere', function () {
 
-  it('is expected to have builtin validators', function () {
+  it('should have a set of built-in validators', function () {
     expect(validators).to.be.instanceOf(Object);
 
     var validatorNames = Object.keys(validators);
@@ -15,8 +16,9 @@ describe('adhere', function () {
     });
   });
 
-  it('is expected to export a function for validating values against schemas', function () {
-    expect(adhere.validate).to.be.instanceOf(Function);
+  it('should export a function for validating values against schemas', function () {
+    var xport = require(path.join('../', require('../package.json').main));
+    expect(xport.validate).to.be.instanceOf(Function);
   });
 
   it('should validate a simple schema', function () {

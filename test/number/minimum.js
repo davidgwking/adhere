@@ -3,7 +3,7 @@ var adhere = require('../../lib/adhere');
 
 describe('minimum', function () {
 
-  it('valid', function () {
+  it('should validate numbers that are greater than or equal to the keyword value', function () {
     var schema = {
       type: 'number',
       minimum: 10
@@ -16,7 +16,7 @@ describe('minimum', function () {
     });
   });
 
-  it('invalid', function () {
+  it('should invalidate numbers that are less than the keyword value', function () {
     var schema = {
       type: 'number',
       minimum: 10
@@ -31,7 +31,7 @@ describe('minimum', function () {
 
   describe('exclusiveMinimum', function () {
 
-    it('valid', function () {
+    it('if true, should validate numbers that are greater than the `minimum` keyword value', function () {
       var schema = {
         type: 'number',
         minimum: 10,
@@ -45,7 +45,7 @@ describe('minimum', function () {
       });
     });
 
-    it('invalid', function () {
+    it('if true, should invalidate numbers that are less than or equal to the `minimum` keyword value', function () {
       var schema = {
         type: 'number',
         minimum: 10,

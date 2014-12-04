@@ -1,5 +1,4 @@
 # Initial Release
-* behavioral test cases
 * proper error documentation
 * string formats and tests
 * schema validation and tests

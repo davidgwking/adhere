@@ -3,9 +3,9 @@ var adhere = require('../../lib/adhere');
 
 describe('dependencies', function () {
 
-  describe('property dependencies', function () {
+  describe('as property dependencies', function () {
 
-    it('valid', function () {
+    it('should validate an object that has dependencies and all dependencies are valid', function () {
       var schema = {
         type: 'object',
         properties: {
@@ -22,7 +22,7 @@ describe('dependencies', function () {
       expect(result.valid).to.eql(true);
     });
 
-    it('invalid when dependencies is invalid', function () {
+    it('should invalidate an object that has dependencies and at least one dependecy is invalid', function () {
       var schema = {
         type: 'object',
         properties: {
@@ -39,7 +39,7 @@ describe('dependencies', function () {
       expect(result.valid).to.eql(false);
     });
 
-    it('invalid when cannot validate property as not in schema', function () {
+    it('should invalidate an object that has a dependency, but that dependency fails because the property was not visited', function () {
       var schema = {
         type: 'object',
         properties: {
@@ -55,7 +55,8 @@ describe('dependencies', function () {
       expect(result.valid).to.eql(false);
     });
 
-    it('should be able to have a property with a dependency despite no property declaration', function () {
+    it('should validate an object that has a property which has a dependency that is valid, but does not have a corresponding ' +
+        '`properties` schema', function () {
       var schema = {
         type: 'object',
         properties: {
@@ -73,9 +74,9 @@ describe('dependencies', function () {
 
   });
 
-  describe('schema dependencies', function () {
+  describe('as schema dependencies', function () {
 
-    it('valid', function () {
+    it('should validate objects with properties that have dependencies and the object itself satisfies the dependencies', function () {
       var schema = {
         type: 'object',
         properties: {
@@ -96,7 +97,7 @@ describe('dependencies', function () {
       expect(result.valid).to.eql(true);
     });
 
-    it('invalid', function () {
+    it('should validate objects with properties that have dependencies but the object does not satisfy at last one of the dependencies', function () {
       var schema = {
         type: 'object',
         properties: {
@@ -117,7 +118,8 @@ describe('dependencies', function () {
       expect(result.valid).to.eql(false);
     });
 
-    it('should enforce dependencies for properties that don\'t have explicit schema declaration', function () {
+    it('should invalidate an object that has a property which has a dependency that is invalid even if the property with the ' +
+        'dependency wasn\'t visited', function () {
       var schema = {
         type: 'object',
         properties: {

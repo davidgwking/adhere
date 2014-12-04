@@ -3,7 +3,7 @@ var adhere = require('../../lib/adhere');
 
 describe('maxLength', function () {
 
-  it('valid', function () {
+  it('should validate strings with length less than or equal to the keyword value', function () {
     var schema = {
       type: 'string',
       maxLength: 5
@@ -16,7 +16,7 @@ describe('maxLength', function () {
     });
   });
 
-  it('invalid', function () {
+  it('should invalidate strings with length greater than the keyword value', function () {
     var schema = {
       type: 'string',
       maxLength: 5

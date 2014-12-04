@@ -3,7 +3,7 @@ var adhere = require('../../lib/adhere');
 
 describe('minItems', function () {
 
-  it('valid', function () {
+  it('should validate arrays with as many or more elements than the value of the keyword', function () {
     var schema = {
       type: 'array',
       minItems: 1
@@ -16,7 +16,7 @@ describe('minItems', function () {
     });
   });
 
-  it('invalid', function () {
+  it('should invalidate arrays with less elements than the value of the keyword', function () {
     var schema = {
       type: 'array',
       minItems: 1

@@ -3,9 +3,9 @@ var adhere = require('../../lib/adhere');
 
 describe('properties', function () {
 
-  describe('should visit and validate', function () {
+  describe('should visit and validate an object', function () {
 
-    it('one', function () {
+    it('when only one property is defined', function () {
       var visited = false;
       var schema = {
         type: 'object',
@@ -25,7 +25,7 @@ describe('properties', function () {
       expect(visited).to.eql(true);
     });
 
-    it('multiple', function () {
+    it('when multiple properties are defined', function () {
       var visited = false, secondVisited = false;
       var schema = {
         type: 'object',

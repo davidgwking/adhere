@@ -14,9 +14,9 @@ var testVals = [
 
 describe('type', function () {
 
-  describe('object', function () {
+  describe('of object', function () {
 
-    it('valid', function () {
+    it('should validate an object', function () {
       var schema = {type: 'object'};
       var vals = testVals.slice(0,2);
 
@@ -26,7 +26,7 @@ describe('type', function () {
       });
     });
 
-    it('invalid', function () {
+    it('should invalidate a non-object', function () {
       var schema = {type: 'object'};
       var vals = testVals.slice(2);
 
@@ -40,7 +40,7 @@ describe('type', function () {
 
   describe('number', function () {
 
-    it('valid', function () {
+    it('should validate a number', function () {
       var schema = {type: 'number'};
       var vals = testVals.slice(2, 9);
 
@@ -50,31 +50,7 @@ describe('type', function () {
       });
     });
 
-    it('invalid', function () {
-      var schema = {type: 'number'};
-      var vals = testVals.slice(0, 2).concat(testVals.slice(9));
-
-      vals.forEach(function (val) {
-        var result = adhere.validate(val, schema);
-        expect(result.valid).to.eql(false);
-      });
-    });
-
-  });
-
-  describe('number', function () {
-
-    it('valid', function () {
-      var schema = {type: 'number'};
-      var vals = testVals.slice(2, 9);
-
-      vals.forEach(function (val) {
-        var result = adhere.validate(val, schema);
-        expect(result.valid).to.eql(true);
-      });
-    });
-
-    it('invalid', function () {
+    it('should invalidate a non-number', function () {
       var schema = {type: 'number'};
       var vals = testVals.slice(0, 2).concat(testVals.slice(9));
 
@@ -88,7 +64,7 @@ describe('type', function () {
 
   describe('integer', function () {
 
-    it('valid', function () {
+    it('should validate an integer', function () {
       var schema = {type: 'integer'};
       var vals = testVals.slice(6, 9);
 
@@ -98,7 +74,7 @@ describe('type', function () {
       });
     });
 
-    it('invalid', function () {
+    it('should invalidate a non-integer', function () {
       var schema = {type: 'integer'};
       var vals = testVals.slice(0, 6).concat(testVals.slice(9));
 
@@ -112,7 +88,7 @@ describe('type', function () {
 
   describe('null', function () {
 
-    it('valid', function () {
+    it('should validate a null', function () {
       var schema = {type: 'null'};
       var vals = testVals.slice(15, 16);
 
@@ -122,7 +98,7 @@ describe('type', function () {
       });
     });
 
-    it('invalid', function () {
+    it('should invalidate a non-null', function () {
       var schema = {type: 'null'};
       var vals = testVals.slice(0, 15).concat(testVals.slice(16));
 
@@ -136,7 +112,7 @@ describe('type', function () {
 
   describe('boolean', function () {
 
-    it('valid', function () {
+    it('should validate a boolean', function () {
       var schema = {type: 'boolean'};
       var vals = testVals.slice(13, 15);
 
@@ -146,7 +122,7 @@ describe('type', function () {
       });
     });
 
-    it('invalid', function () {
+    it('should invalidate a non-boolean', function () {
       var schema = {type: 'boolean'};
       var vals = testVals.slice(0, 13).concat(testVals.slice(15));
 
@@ -160,7 +136,7 @@ describe('type', function () {
 
   describe('string', function () {
 
-    it('valid', function () {
+    it('should validate a string', function () {
       var schema = {type: 'string'};
       var vals = testVals.slice(9, 11);
 
@@ -170,7 +146,7 @@ describe('type', function () {
       });
     });
 
-    it('invalid', function () {
+    it('should invalidate a non-string', function () {
       var schema = {type: 'string'};
       var vals = testVals.slice(0, 9).concat(testVals.slice(11));
 
@@ -184,7 +160,7 @@ describe('type', function () {
 
   describe('array', function () {
 
-    it('valid', function () {
+    it('should validate an array', function () {
       var schema = {type: 'array'};
       var vals = testVals.slice(11, 13);
 
@@ -194,7 +170,7 @@ describe('type', function () {
       });
     });
 
-    it('invalid', function () {
+    it('should invalidate a non-array', function () {
       var schema = {type: 'array'};
       var vals = testVals.slice(0, 11).concat(testVals.slice(13));
 
@@ -207,5 +183,27 @@ describe('type', function () {
   });
 
 
-  describe('array of types', function () { });
+  describe('array of types', function () {
+
+    it('should validate matches', function () {
+      var schema = {type: ['object', 'number']};
+
+      var vals = testVals.slice(0, 9);
+      vals.forEach(function (val) {
+        var result = adhere.validate(val, schema);
+        expect(result.valid).to.eql(true);
+      });
+    });
+
+    it('should invalidate non-matches', function () {
+      var schema = {type: ['object', 'number']};
+
+      var vals = testVals.slice(9);
+      vals.forEach(function (val) {
+        var result = adhere.validate(val, schema);
+        expect(result.valid).to.eql(false);
+      });
+    });
+
+  });
 });

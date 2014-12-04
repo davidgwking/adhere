@@ -3,7 +3,7 @@ var adhere = require('../../lib/adhere');
 
 describe('conform', function () {
 
-  it('should pass the value being tested', function () {
+  it('should pass the value being tested while invaliding the value if conform returns true', function () {
     var passedVal;
     var schema = {
       type: 'number',
@@ -16,7 +16,7 @@ describe('conform', function () {
     expect(result.valid).to.eql(true);
   });
 
-  it('should pass the value being tested and a parent val', function () {
+  it('should pass the value being tested and a parent value while invalidating the value if conform returns false', function () {
     var passedVal, passedParentVal;
     var schema = {
       type: 'object',

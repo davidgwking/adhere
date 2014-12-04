@@ -3,9 +3,9 @@ var adhere = require('../../lib/adhere');
 
 describe('patternProperties', function () {
 
-  it('should visit and validate', function () {
+  it('should visit and validate an object', function () {
 
-    it('one', function () {
+    it('when only one pattern is defined', function () {
       var visited = false;
       var schema = {
         type: 'object',
@@ -25,7 +25,7 @@ describe('patternProperties', function () {
       expect(visited).to.eql(true);
     });
 
-    it('multiple', function () {
+    it('when multiple patterns are defined', function () {
       var visited = false, secondVisited = false;
       var schema = {
         type: 'object',
