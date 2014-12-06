@@ -586,16 +586,19 @@ Additionally, *adhere* differentiates itself from the RFC in the following ways:
 * `messages`
   * custom messages for object properties that fail validation for one reason or another
 
-## Development Notes
+## Gulp Tasks
 
 ```bash
+gulp # lint and node tests
 gulp lint # lint
 gulp test # node tests
 gulp coverage # node tests with coverage
 ```
 
-### Browser Tests
-This gulp task will auto-detect browser executables via the following environment variables: `CHROME_BIN`, `SAFARI_BIN`, `FIREFOX_BIN`, `OPERA_BIN`, and `IE_BIN`. PhantomJS is always tested. Specific browsers can be specified as follows:
+### Local Browser Tests
+The `test-browser` task will local auto-detect browser executables via the following environment variables: `CHROME_BIN`, `SAFARI_BIN`, `FIREFOX_BIN`, `OPERA_BIN`, and `IE_BIN`. When using browser auto-detect, PhantomJS is always tested.
+
+To test only specific browsers, use the `browsers` option.
 
 ```bash
 gulp test-browser --browsers PhantomJS,Firefox
