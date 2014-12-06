@@ -2,6 +2,63 @@ var async = require('async');
 var karma = require('karma').server;
 
 var launchers = {
+  /**
+   * Chrome
+   */
+   'slChromeWin8.1': {
+     base: 'SauceLabs',
+     browserName: 'chrome',
+     platform: 'Windows 8.1'
+   },
+   slChromeWin8: {
+     base: 'SauceLabs',
+     browserName: 'chrome',
+     platform: 'Windows 8'
+   },
+   slChromeWin7: {
+     base: 'SauceLabs',
+     browserName: 'chrome',
+     platform: 'Windows 7'
+   },
+   'slChromeYosemite': {
+     base: 'SauceLabs',
+     browserName: 'chrome',
+     platform: 'OS X 10.10'
+   },
+   'slChromeMavericks': {
+     base: 'SauceLabs',
+     browserName: 'chrome',
+     platform: 'OS X 10.9'
+   },
+   'slChromeLinux': {
+     base: 'SauceLabs',
+     browserName: 'chrome',
+     platform: 'Linux'
+   },
+  /**
+   * Firefox
+   */
+   slFirefox24Win7: {
+     base: 'SauceLabs',
+     browserName: 'firefox',
+     platform: 'Windows 7',
+     version: '24'
+   },
+   slFirefox31Win7: {
+     base: 'SauceLabs',
+     browserName: 'firefox',
+     platform: 'Windows 7',
+     version: '31'
+   },
+   slFirefox33Win7: {
+     base: 'SauceLabs',
+     browserName: 'firefox',
+     platform: 'Windows 7',
+     version: '33'
+   },
+  /**
+   * Internet Explorer
+   */
   slIE9Win7: {
     base: 'SauceLabs',
     browserName: 'internet explorer',
@@ -31,24 +88,6 @@ var launchers = {
     browserName: 'internet explorer',
     platform: 'Windows 8.1',
     version: '11'
-  },
-  slChrome39Win7: {
-    base: 'SauceLabs',
-    browserName: 'chrome',
-    platform: 'Windows 7',
-    version: '39'
-  },
-  slFirefox31Win7: {
-    base: 'SauceLabs',
-    browserName: 'firefox',
-    platform: 'Windows 7',
-    version: '31'
-  },
-  slFirefox33Win7: {
-    base: 'SauceLabs',
-    browserName: 'firefox',
-    platform: 'Windows 7',
-    version: '33'
   }
 };
 
