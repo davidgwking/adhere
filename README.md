@@ -3,12 +3,14 @@
 # adhere
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
-
 [![Sauce Test Status][saucelabs-image]][saucelabs-url]
+<sup>†</sup>
+
+<sub><sup>†</sup>when checking browser compatibilities, saucelabs test matrix is often incorrect, so you should look at the most recent build number in the grid when</sub>
 
 This project is inspired by the [revalidator](https://github.com/flatiron/revalidator) project, so I must extend a shout out to those guys!
 
-*adhere* is a simple schema\-based data validator. *adhere's* schema validation structure is heavily influenced by  [JSONSchema](http://json-schema.org/latest/json-schema-validation.html)
+*adhere* is a simple schema\-based data validator, and strives for [JSONSchema](http://json-schema.org/latest/json-schema-validation.html) compliance.
 
 Unlike the JSONSchema specification, however, *adhere* is highly opinionated with respect to type\-defined keyword enforcement. *adhere* allows direct validation of primitive (string, number, integer, boolean), reference (array and object), and null data types against declared schemas. In addition to data validation, *adhere* plans to providew a means for validating user-defined schemas.
 
@@ -612,4 +614,4 @@ Possible browser flags include `Chrome`, `Safari`, `Firefox`, `Opera`, and `IE`.
 [coveralls-image]: https://img.shields.io/coveralls/davidgwking/adhere.svg?style=flat&branch=master
 [coveralls-url]: https://coveralls.io/r/davidgwking/adhere
 [saucelabs-url]: https://saucelabs.com/u/adhere
-[saucelabs-image]: https://saucelabs.com/browser-matrix/adhere.svg
+[saucelabs-image]: https://saucelabs.com/buildstatus/adhere
