@@ -34,9 +34,14 @@ var gulp = require('./gulp')([
   'lint',
   'test',
   'test-browser',
+  'test-browser-remote',
   'watch'
 ]);
 
 gulp.task('default', function (cb) {
   runSequence('lint', 'test', cb);
+});
+
+gulp.task('travis', function (cb) {
+  runSequence('lint', 'coverage', 'test-browser-remote', cb);
 });
