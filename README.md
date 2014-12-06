@@ -6,7 +6,7 @@
 [![Sauce Test Status][saucelabs-image]][saucelabs-url]
 <sup>†</sup>
 
-<sub><sup>†</sup>when checking browser compatibilities, saucelabs test matrix is often incorrect, so you should look at the grid found below instead
+<sub><sup>†</sup>when checking browser compatibilities, saucelabs test matrix is often incorrect, so you should instead look at the grid found below it
 
 *adhere* is a simple schema\-based data validator, and strives for [JSONSchema](http://json-schema.org/latest/json-schema-validation.html) compliance.
 
