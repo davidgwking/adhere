@@ -37,10 +37,10 @@ var launchers = {
 module.exports = function (done) {
   // hack browsers tests so they execute serially
   // karma-sauce-launcher doesn't have concurrency control and sauce oftens starts queueing
-  async.eachSeries(Object.keys(launchers), 1, function (launcher, next) {
+  async.eachSeries(Object.keys(launchers), function (launcher, next) {
     var configs = {};
     configs[launcher] = launchers[launcher];
-    
+
     karma.start({
       configFile: __dirname + '/../../karma.conf.js',
       browsers: [launcher],

@@ -6,6 +6,7 @@ module.exports = function(config) {
       'test/**/*.js'
     ],
 
+    // saucelabs reporter must be used or saucelabs won't report outcome
     reporters: ['dots', 'saucelabs'],
 
     preprocessors: {
