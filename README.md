@@ -8,8 +8,6 @@
 
 <sub><sup>†</sup>when checking browser compatibilities, saucelabs test matrix is often incorrect, so you should look at the most recent build number in the grid when</sub>
 
-This project is inspired by the [revalidator](https://github.com/flatiron/revalidator) project, so I must extend a shout out to those guys!
-
 *adhere* is a simple schema\-based data validator, and strives for [JSONSchema](http://json-schema.org/latest/json-schema-validation.html) compliance.
 
 Unlike the JSONSchema specification, however, *adhere* is highly opinionated with respect to type\-defined keyword enforcement. *adhere* allows direct validation of primitive (string, number, integer, boolean), reference (array and object), and null data types against declared schemas. In addition to data validation, *adhere* plans to providew a means for validating user-defined schemas.
