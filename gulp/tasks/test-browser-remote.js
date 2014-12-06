@@ -2,19 +2,25 @@ var async = require('async');
 var karma = require('karma').server;
 
 var launchers = {
-  slIE9: {
+  slIE8Win7: {
+    base: 'SauceLabs',
+    browserName: 'internet explorer',
+    platform: 'Windows 7',
+    version: '8'
+  },
+  slIE9Win7: {
     base: 'SauceLabs',
     browserName: 'internet explorer',
     platform: 'Windows 7',
     version: '9'
   },
-  slIE10: {
+  slIE10Win7: {
     base: 'SauceLabs',
     browserName: 'internet explorer',
     platform: 'Windows 7',
     version: '10'
   },
-  slIE11: {
+  slIE11Win7: {
     base: 'SauceLabs',
     browserName: 'internet explorer',
     platform: 'Windows 7',
