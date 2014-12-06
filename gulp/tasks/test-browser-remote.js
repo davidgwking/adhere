@@ -49,6 +49,7 @@ module.exports = function (done) {
   karma.start({
     configFile: __dirname + '/../../karma.conf.js',
     browsers: Object.keys(sauceLabsTests),
-    customLaunchers: sauceLabsTests
+    customLaunchers: sauceLabsTests,
+    browserNoActivityTimeout: 1000000 // sauce labs builds can queue up
   }, done);
 };
