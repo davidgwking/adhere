@@ -4,6 +4,7 @@
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
+[![Sauce Test Status][saucelabs-image]][saucelabs-url]
 
 This project is inspired by the [revalidator](https://github.com/flatiron/revalidator) project, so I must extend a shout out to those guys!
 
@@ -610,3 +611,5 @@ Possible browser flags include `Chrome`, `Safari`, `Firefox`, `Opera`, and `IE`.
 [travis-url]: https://travis-ci.org/davidgwking/adhere
 [coveralls-image]: https://img.shields.io/coveralls/davidgwking/adhere.svg?style=flat&branch=master
 [coveralls-url]: https://coveralls.io/r/davidgwking/adhere
+[saucelabs-url]: https://saucelabs.com/u/adhere
+[saucelabs-image]: https://saucelabs.com/browser-matrix/adhere.svg
