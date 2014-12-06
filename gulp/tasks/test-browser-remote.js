@@ -30,25 +30,20 @@ var launchers = {
      browserName: 'chrome',
      platform: 'OS X 10.9'
    },
-   'slChromeLinux': {
-     base: 'SauceLabs',
-     browserName: 'chrome',
-     platform: 'Linux'
-   },
   /**
    * Firefox
    */
-   slFirefox24Win7: {
+   'slFirefox33Win8.1': {
      base: 'SauceLabs',
      browserName: 'firefox',
-     platform: 'Windows 7',
-     version: '24'
+     platform: 'Windows 8.1',
+     version: '33'
    },
-   slFirefox31Win7: {
+   slFirefox33Win8: {
      base: 'SauceLabs',
      browserName: 'firefox',
-     platform: 'Windows 7',
-     version: '31'
+     platform: 'Windows 8',
+     version: '33'
    },
    slFirefox33Win7: {
      base: 'SauceLabs',
@@ -56,20 +51,56 @@ var launchers = {
      platform: 'Windows 7',
      version: '33'
    },
+   'slFirefox31Win8.1': {
+     base: 'SauceLabs',
+     browserName: 'firefox',
+     platform: 'Windows 8.1',
+     version: '31'
+   },
+   slFirefox31Win8: {
+     base: 'SauceLabs',
+     browserName: 'firefox',
+     platform: 'Windows 8',
+     version: '31'
+   },
+   slFirefox31Win7: {
+     base: 'SauceLabs',
+     browserName: 'firefox',
+     platform: 'Windows 7',
+     version: '31'
+   },
+   'slFirefox24Win8.1': {
+     base: 'SauceLabs',
+     browserName: 'firefox',
+     platform: 'Windows 8.1',
+     version: '24'
+   },
+   slFirefox24Win8: {
+     base: 'SauceLabs',
+     browserName: 'firefox',
+     platform: 'Windows 8',
+     version: '24'
+   },
+   slFirefox24Win7: {
+     base: 'SauceLabs',
+     browserName: 'firefox',
+     platform: 'Windows 7',
+     version: '24'
+   },
   /**
    * Internet Explorer
    */
-  slIE9Win7: {
+  'slIE11Win8.1': {
+     base: 'SauceLabs',
+     browserName: 'internet explorer',
+     platform: 'Windows 8.1',
+     version: '11'
+   },
+  slIE11Win7: {
     base: 'SauceLabs',
     browserName: 'internet explorer',
     platform: 'Windows 7',
-    version: '9'
-  },
-  slIE10Win7: {
-    base: 'SauceLabs',
-    browserName: 'internet explorer',
-    platform: 'Windows 7',
-    version: '10'
+    version: '11'
   },
   slIE10Win8: {
     base: 'SauceLabs',
@@ -77,17 +108,17 @@ var launchers = {
     platform: 'Windows 8',
     version: '10'
   },
-  slIE11Win7: {
+  slIE10Win7: {
     base: 'SauceLabs',
     browserName: 'internet explorer',
     platform: 'Windows 7',
-    version: '11'
+    version: '10'
   },
-  'slIE11Win8.1': {
+  slIE9Win7: {
     base: 'SauceLabs',
     browserName: 'internet explorer',
-    platform: 'Windows 8.1',
-    version: '11'
+    platform: 'Windows 7',
+    version: '9'
   }
 };
 
