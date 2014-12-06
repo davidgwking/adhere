@@ -1,4 +1,8 @@
 language: node_js
+env:
+  global:
+    - secure: TwnCQGo1A7qyWdW+sihGT5K/xXof2vORlGB4NLxxDlhWH1OToKzsLUVQwilHDLvY6BJGwV62URPduRxYI4bsZknEr71sraFI6vQ1nXVsBMPDE8iUUrznkDQyFU/4tWmVMeA3G0ECiPr+Rfj9qK+kO1Nql3kt9BJD4apgN73SMH8=
+    - secure: mYqpy04Y7eNC0rVkCh57P9c+E7+mSaGIfVAxBQHtggoiMnakC+AlT7FSrVDCbYOe/3J760g6cJQhnrqfQ76V+FGPrtr28DUcmg9RACEne7d1t1WGQuTJO02Dz+C8jB2weSmFCbNg70UzrEf0JUjraaJK/3sUu0yd+DIQIg3t/lE=
 node_js:
   - "0.11"
   - "0.10"
@@ -6,8 +10,5 @@ matrix:
   allow_failures:
     - node_js: "0.11"
   fast_finish: true
-script: "./node_modules/.bin/gulp travis --browsers PhantomJS,Firefox"
+script: "./node_modules/.bin/gulp travis --browsers slIE11"
 after_script: "cat ./coverage/lcov.info | coveralls"
-before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
