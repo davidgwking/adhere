@@ -3,6 +3,60 @@ var karma = require('karma').server;
 
 var launchers = {
   /**
+   * ios
+   */
+   'slIphone8.1Ios10.9': {
+     base: 'SauceLabs',
+     browserName: 'iphone',
+     platform: 'OS X 10.9',
+     version: '8.1'
+   },
+   'slIpad8.1Ios10.9': {
+     base: 'SauceLabs',
+     browserName: 'ipad',
+     platform: 'OS X 10.9',
+     version: '8.1'
+   },
+   'slIphone8.0Ios10.9': {
+     base: 'SauceLabs',
+     browserName: 'iphone',
+     platform: 'OS X 10.9',
+     version: '8.0'
+   },
+   'slIpad8.0Ios10.9': {
+     base: 'SauceLabs',
+     browserName: 'ipad',
+     platform: 'OS X 10.9',
+     version: '8.0'
+   },
+   /**
+    * android
+    */
+   'slAndroid4.4': {
+     base: 'SauceLabs',
+     browserName: 'android',
+     platform: 'linux',
+     version: '4.4'
+   },
+   'slAndroid4.3': {
+     base: 'SauceLabs',
+     browserName: 'android',
+     platform: 'linux',
+     version: '4.3'
+   },
+   'slAndroid4.2': {
+     base: 'SauceLabs',
+     browserName: 'android',
+     platform: 'linux',
+     version: '4.2'
+   },
+   'slAndroid4.1': {
+     base: 'SauceLabs',
+     browserName: 'android',
+     platform: 'linux',
+     version: '4.1'
+   },
+  /**
    * Chrome
    */
    'slChromeWin8.1': {
