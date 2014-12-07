@@ -187,7 +187,7 @@ Expected to be an array of schemas. The value must satisfy these schemas.
 {
   type: 'number',
   anyOf: [
-    // value <= 10 or 20 <= value<= 100
+    // value <= 10 or 20 <= value <= 100
     {type: 'number', maximum: 10},
     {type: 'number', minimum: 20, maximum: 100}
   ]
