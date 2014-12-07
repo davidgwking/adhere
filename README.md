@@ -3,11 +3,12 @@
 # adhere
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
+[![Sauce Test Status][saucelabs-image]][saucelabs-url]
+<sup>†</sup>
 
+<sub><sup>†</sup>when checking browser compatibilities, saucelabs test matrix is often incorrect, so you should instead look at the grid found below it
 
-This project is inspired by the [revalidator](https://github.com/flatiron/revalidator) project, so I must extend a shout out to those guys!
-
-*adhere* is a simple schema\-based data validator. *adhere's* schema validation structure is heavily influenced by  [JSONSchema](http://json-schema.org/latest/json-schema-validation.html)
+*adhere* is a simple schema\-based data validator, and strives for [JSONSchema](http://json-schema.org/latest/json-schema-validation.html) compliance.
 
 Unlike the JSONSchema specification, however, *adhere* is highly opinionated with respect to type\-defined keyword enforcement. *adhere* allows direct validation of primitive (string, number, integer, boolean), reference (array and object), and null data types against declared schemas. In addition to data validation, *adhere* plans to providew a means for validating user-defined schemas.
 
@@ -186,7 +187,7 @@ Expected to be an array of schemas. The value must satisfy these schemas.
 {
   type: 'number',
   anyOf: [
-    // value <= 10 or 20 <= value<= 100
+    // value <= 10 or 20 <= value <= 100
     {type: 'number', maximum: 10},
     {type: 'number', minimum: 20, maximum: 100}
   ]
@@ -586,16 +587,19 @@ Additionally, *adhere* differentiates itself from the RFC in the following ways:
 * `messages`
   * custom messages for object properties that fail validation for one reason or another
 
-## Development Notes
+## Gulp Tasks
 
 ```bash
+gulp # lint and node tests
 gulp lint # lint
 gulp test # node tests
 gulp coverage # node tests with coverage
 ```
 
-### Browser Tests
-This gulp task will auto-detect browser executables via the following environment variables: `CHROME_BIN`, `SAFARI_BIN`, `FIREFOX_BIN`, `OPERA_BIN`, and `IE_BIN`. PhantomJS is always tested. Specific browsers can be specified as follows:
+### Local Browser Tests
+The `test-browser` task will local auto-detect browser executables via the following environment variables: `CHROME_BIN`, `SAFARI_BIN`, `FIREFOX_BIN`, `OPERA_BIN`, and `IE_BIN`. When using browser auto-detect, PhantomJS is always tested.
+
+To test only specific browsers, use the `browsers` option.
 
 ```bash
 gulp test-browser --browsers PhantomJS,Firefox
@@ -607,3 +611,5 @@ Possible browser flags include `Chrome`, `Safari`, `Firefox`, `Opera`, and `IE`.
 [travis-url]: https://travis-ci.org/davidgwking/adhere
 [coveralls-image]: https://img.shields.io/coveralls/davidgwking/adhere.svg?style=flat&branch=master
 [coveralls-url]: https://coveralls.io/r/davidgwking/adhere
+[saucelabs-url]: https://saucelabs.com/u/adhere
+[saucelabs-image]: https://saucelabs.com/buildstatus/adhere

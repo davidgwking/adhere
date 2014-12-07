@@ -8,9 +8,9 @@
     "David King <davidgwking@gmail.com>"
   ],
   "keywords": [
+    "schema",
     "validate",
-    "validation",
-    "revalidator"
+    "validation"
   ],
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "mout": "^0.11.0"
   },
   "devDependencies": {
+    "async": "^0.9.0",
     "browserify": "^6.3.3",
     "chai": "^1.10.0",
     "coveralls": "^2.11.2",
@@ -41,6 +42,7 @@
     "karma-opera-launcher": "^0.1.0",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-safari-launcher": "^0.1.1",
+    "karma-sauce-launcher": "^0.2.10",
     "minimist": "^1.1.0",
     "mocha": "^2.0.1",
     "run-sequence": "^1.0.2",
