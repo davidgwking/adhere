@@ -1,8 +1,8 @@
 language: node_js
 # whitelist branches (uncomment when ready to package for npm/bower)
-branches:
-  only:
-    - master
+# branches:
+#   only:
+#     - master
 # saucelabs encrypted creds
 env:
   global:
