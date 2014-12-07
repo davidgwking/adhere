@@ -3,7 +3,7 @@ language: node_js
 branches:
   only:
     - master
-saucelabs encrypted creds
+# saucelabs encrypted creds
 env:
   global:
     - secure: TwnCQGo1A7qyWdW+sihGT5K/xXof2vORlGB4NLxxDlhWH1OToKzsLUVQwilHDLvY6BJGwV62URPduRxYI4bsZknEr71sraFI6vQ1nXVsBMPDE8iUUrznkDQyFU/4tWmVMeA3G0ECiPr+Rfj9qK+kO1Nql3kt9BJD4apgN73SMH8=
