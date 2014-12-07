@@ -8,9 +8,9 @@
     "David King <davidgwking@gmail.com>"
   ],
   "keywords": [
+    "schema",
     "validate",
-    "validation",
-    "revalidator"
+    "validation"
   ],
   "repository": {
     "type": "git",
