@@ -190,6 +190,12 @@ module.exports = function (done) {
       browserNoActivityTimeout: 1000000 // sauce labs builds can queue up
     };
 
-    karma.start(karmaConf, function () { next(); });
+    // launcher seems to return multiple times in some cases... once it
+    var calledback = false;
+    karma.start(karmaConf, function () {
+      if (calledback === true) return;
+      calledback = true;
+      next();
+    });
   }, done);
 };
