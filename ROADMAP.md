@@ -1,5 +1,6 @@
 # Initial Release
-* string formats and tests
+* `descriptions` and `$ref` utility keywords, and tests
+* string `format`, injectable formats, and tests
 * schema validation and tests
 * npm publishing
 * bower publishing
@@ -9,4 +10,3 @@
 * detect structural incompatibilities
 * can we detect logical incompatibilities?
 * benchmark performance of revalidator vs adhere
-* object recursion keyword
