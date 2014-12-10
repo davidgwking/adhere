@@ -613,3 +613,5 @@ Possible browser flags include `Chrome`, `Safari`, `Firefox`, `Opera`, and `IE`.
 [coveralls-url]: https://coveralls.io/r/davidgwking/adhere
 [saucelabs-url]: https://saucelabs.com/u/adhere
 [saucelabs-image]: https://saucelabs.com/buildstatus/adhere
+
+
