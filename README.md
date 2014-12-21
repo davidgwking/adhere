@@ -597,7 +597,7 @@ gulp coverage # node tests with coverage
 ```
 
 ### Local Browser Tests
-The `test-browser` task will local auto-detect browser executables via the following environment variables: `CHROME_BIN`, `SAFARI_BIN`, `FIREFOX_BIN`, `OPERA_BIN`, and `IE_BIN`. When using browser auto-detect, PhantomJS is always tested.
+The `test-browser` task will auto-detect browser executables via the following environment variables: `CHROME_BIN`, `SAFARI_BIN`, `FIREFOX_BIN`, `OPERA_BIN`, and `IE_BIN`. When using browser auto-detect, PhantomJS is always tested.
 
 To test only specific browsers, use the `browsers` option.
 
