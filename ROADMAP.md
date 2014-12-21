@@ -1,5 +1,4 @@
 # Initial Release
-* `descriptions` and `$ref` utility keywords, and tests
 * string `format` validation keyword, injectable formats, and tests
 * schema validation and tests
 * npm publishing
