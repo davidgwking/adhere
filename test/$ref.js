@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 var adhere = require('../lib/adhere');
 
-describe('$ref', function () {
+describe('$ref and definitions', function () {
 
   it('should interpolate referenced schemas', function () {
     var schema = {
