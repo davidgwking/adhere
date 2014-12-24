@@ -25,7 +25,7 @@ describe('allOf', function () {
     expect(result.valid).to.eql(false);
   });
 
-  it('shoudl invalid values that do not satisfy any keyword schemas', function () {
+  it('should invalidate values that do not satisfy any keyword schemas', function () {
     var schema = {
       type: 'number',
       allOf: [{type: 'object'}, {type: 'object'}, {type: 'number'}]

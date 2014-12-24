@@ -52,6 +52,7 @@ describe('patternProperties', function () {
       expect(visited).to.eql(true);
       expect(secondVisited).to.eql(true);
     });
+
   });
 
 });
