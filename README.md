@@ -563,6 +563,52 @@ If `multipleOf` is zero, *adhere* will return a schema error.
 
 `boolean` and `null` types do not have any type-specific keywords.
 
+
+### Utility Keywords
+
+#### $ref and definitions
+
+As utility keywords, `$ref` and `definitions` augment the basic validation feature set with sub-schema inlining.
+
+```js
+// should validate [1, 2, [[[[[5], 4]]]], [2]]
+{
+  type: 'array',
+  items: { '$ref': '#recursiveArrayOfPositiveIntegers' },
+  definitions: {
+    recursiveArrayOfPositiveIntegers: {
+      type: ['array', 'number'],
+      items: { '$ref': '#recursiveArrayOfPositiveIntegers' },
+      minimum: 0,
+      exclusiveMinimum: true
+    }
+  }
+}
+```
+
+When an object with the `$ref` keyword is encountered where a subschema is typically expected, *adhere* will validate against the resolved schema.
+
+If a `$ref` is encountered, but no matching `definition` is found, an empty schema is provided. In this way, an empty schema is considered the default value for an interpolated `$ref`, and will always result in validation failure (as `type` is a required property). Future work should seek to streamline the missing subschema issue, returning a schema error.
+
+`definitions` are inherited from parent schemas, but a sub-schema can supercede its parent's `definitions`.
+
+```js
+{
+  not: {
+    // can resolve mySchema, mySchema2, mySchema3
+    definitions: {
+      mySchema: ...,
+      mySchema3: ...
+    }
+  },
+  // can resolve mySchema, mySchema2
+  definitions: {
+    mySchema: ...,
+    mySchema2: ...
+  }
+}
+```
+
 ## JSONSchema Compliance
 
 At this time, there are no plans to implement the following esoteric JSONSchema keywords:
@@ -613,5 +659,3 @@ Possible browser flags include `Chrome`, `Safari`, `Firefox`, `Opera`, and `IE`.
 [coveralls-url]: https://coveralls.io/r/davidgwking/adhere
 [saucelabs-url]: https://saucelabs.com/u/adhere
 [saucelabs-image]: https://saucelabs.com/buildstatus/adhere
-
-
