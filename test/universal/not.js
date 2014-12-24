@@ -29,4 +29,16 @@ describe('not', function () {
     expect(result.valid).to.eql(false);
   });
 
+  it('should resolve referenced schemas', function () {
+    var schema = {
+      type: 'number',
+      not: {$ref: '#mySchema'},
+      definitions: {mySchema: {type: 'object'}}
+    };
+    var val = 1;
+
+    var result = adhere.validate(val, schema);
+    expect(result.valid).to.eql(true);
+  });
+
 });

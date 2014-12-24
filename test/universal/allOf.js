@@ -25,7 +25,7 @@ describe('allOf', function () {
     expect(result.valid).to.eql(false);
   });
 
-  it('shoudl invalid values that do not satisfy any keyword schemas', function () {
+  it('should invalidate values that do not satisfy any keyword schemas', function () {
     var schema = {
       type: 'number',
       allOf: [{type: 'object'}, {type: 'object'}, {type: 'number'}]
@@ -34,6 +34,18 @@ describe('allOf', function () {
 
     var result = adhere.validate(val, schema);
     expect(result.valid).to.eql(false);
+  });
+
+  it('should resolve referenced schemas', function () {
+    var schema = {
+      type: 'object',
+      allOf: [{$ref: '#mySchema'}, {$ref: '#mySchema', definitions: {mySchema: {type: 'object'}}}],
+      definitions: {mySchema: {type: 'object'}}
+    };
+    var val = {};
+
+    var result = adhere.validate(val, schema);
+    expect(result.valid).to.eql(true);
   });
 
 });

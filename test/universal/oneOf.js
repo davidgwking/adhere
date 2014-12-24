@@ -36,4 +36,16 @@ describe('oneOf', function () {
     expect(result.valid).to.eql(false);
   });
 
+  it('should resolved referenced schemas', function () {
+    var schema = {
+      type: 'number',
+      oneOf: [{$ref: '#mySchema2'}, {$ref: '#mySchema'}],
+      definitions: {mySchema: {type: 'number'}, mySchema2: {type: 'object'}}
+    };
+    var val = 1;
+
+    var result = adhere.validate(val, schema);
+    expect(result.valid).to.eql(true);
+  });
+
 });

@@ -97,6 +97,30 @@ describe('dependencies', function () {
       expect(result.valid).to.eql(true);
     });
 
+    it('should resolve referenced schemas', function () {
+      var schema = {
+        type: 'object',
+        properties: {
+          a: {type: 'number'}
+        },
+        dependencies: {
+          a: {$ref: '#mySchema'}
+        },
+        definitions: {
+          mySchema: {
+            type: 'object',
+            properties: {
+              a: {type: 'number', enum: [1]}
+            }
+          }
+        }
+      };
+      var val = {a: 1};
+
+      var result = adhere.validate(val, schema);
+      expect(result.valid).to.eql(true);
+    });
+
     it('should validate objects with properties that have dependencies but the object does not satisfy at last one of the dependencies', function () {
       var schema = {
         type: 'object',

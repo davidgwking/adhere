@@ -53,6 +53,37 @@ describe('properties', function () {
       expect(secondVisited).to.eql(true);
     });
 
+    it('resolving referenced schemas', function () {
+      var visited = false, secondVisited = false;
+      var schema = {
+        type: 'object',
+        properties: {
+          a: {$ref: '#mySchema'},
+          b: {
+            type: 'number',
+            conform: function () {
+              secondVisited = true;
+              return true;
+            }
+          }
+        },
+        definitions: {
+          mySchema: {
+            type: 'number',
+            conform: function () {
+              visited = true;
+              return true;
+            }
+          }
+        }
+      };
+      var val = {a: 1, b: 2};
+
+      adhere.validate(val, schema);
+      expect(visited).to.eql(true);
+      expect(secondVisited).to.eql(true);
+    });
+
   });
 
 });
