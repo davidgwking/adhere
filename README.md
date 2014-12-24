@@ -611,9 +611,8 @@ If a `$ref` is encountered, but no matching `definition` is found, an empty sche
 
 ## JSONSchema Compliance
 
-At this time, there are no plans to implement the following esoteric JSONSchema keywords:
+At this time, there are no plans to implement the following JSONSchema keywords:
 * `title`
-* `definitions`
 * `description`
 * `default`
  * may be reconsidered in the future, but it is not our goal to modify input data
