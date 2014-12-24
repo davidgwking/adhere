@@ -18,20 +18,6 @@ describe('items', function () {
       });
     });
 
-    it('should resolve referenced schemas', function () {
-      var schema = {
-        type: 'array',
-        items: {$ref: '#mySchema'},
-        definitions: {mySchema: {type: 'number'}}
-      };
-
-      var values = [[1, 2, 3], []];
-      values.forEach(function (val) {
-        var result = adhere.validate(val, schema);
-        expect(result.valid).to.eql(true);
-      });
-    });
-
     it('should invalidate arrays with one or many elements that do not satisfy the items schema', function () {
       var schema = {
         type: 'array',
@@ -53,20 +39,6 @@ describe('items', function () {
       var schema = {
         type: 'array',
         items: [{type: 'number'}, {type: 'string'}, {type: 'null'}]
-      };
-
-      var values = [[1, 'a', null]];
-      values.forEach(function (val) {
-        var result = adhere.validate(val, schema);
-        expect(result.valid).to.eql(true);
-      });
-    });
-
-    it('should resolve referenced schemas', function () {
-      var schema = {
-        type: 'array',
-        items: [{type: 'number'}, {$ref: '#mySchema'}, {type: 'null'}],
-        definitions: {mySchema: {type: 'string'}}
       };
 
       var values = [[1, 'a', null]];

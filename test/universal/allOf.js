@@ -36,16 +36,4 @@ describe('allOf', function () {
     expect(result.valid).to.eql(false);
   });
 
-  it('should resolve referenced schemas', function () {
-    var schema = {
-      type: 'object',
-      allOf: [{$ref: '#mySchema'}, {$ref: '#mySchema', definitions: {mySchema: {type: 'object'}}}],
-      definitions: {mySchema: {type: 'object'}}
-    };
-    var val = {};
-
-    var result = adhere.validate(val, schema);
-    expect(result.valid).to.eql(true);
-  });
-
 });

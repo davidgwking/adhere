@@ -32,41 +32,4 @@ describe('adhere', function () {
     expect(result.valid).to.eql(true);
   });
 
-  it('should validate referenced schemas', function () {
-    var schema = {
-      type: 'object',
-      properties: {
-        a: {$ref: '#mySchema'}, // simple reference
-        b: {$ref: '#mySchema', definitions: {mySchema: {type: 'number'}}}, // child reference w/ overwrite
-        c: {$ref: '#myRecursiveObjSchema'}, // recursive referencing
-        d: {type: 'object', properties: {a: {$ref: '#mySchema'}}}, // deep child reference
-      },
-      definitions: {
-        mySchema: {type: 'object'},
-        myRecursiveObjSchema: {
-          type: 'object',
-          patternProperties: {
-            a: {type: 'number', required: true},
-            '.*': {$ref: '#myRecursiveObjSchema'}
-          }
-        }
-      }
-    };
-    var val = {a: {}, b: 2, c: {a: 0, q: {a: 0, d: {a: 0}}}, d: {a: {}}};
-
-    var result = adhere.validate(val, schema);
-    expect(result.valid).to.eql(true);
-  });
-
-  it('should validate self-referencing schemas', function () {
-    var schema = {
-      $ref: '#self',
-      definitions: {self: {type: 'object'}}
-    };
-    var val = {};
-
-    var result = adhere.validate(val, schema);
-    expect(result.valid).to.eql(true);
-  });
-
 });
