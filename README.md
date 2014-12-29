@@ -4,9 +4,6 @@
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 [![Sauce Test Status][saucelabs-image]][saucelabs-url]
-<sup>†</sup>
-
-<sub><sup>†</sup>when checking browser compatibilities, saucelabs test matrix is often incorrect, so you should instead look at the grid found below it
 
 *adhere* is a simple schema\-based data validator, and strives for [JSONSchema](http://json-schema.org/latest/json-schema-validation.html) compliance.
 
@@ -657,4 +654,4 @@ Possible browser flags include `Chrome`, `Safari`, `Firefox`, `Opera`, and `IE`.
 [coveralls-image]: https://img.shields.io/coveralls/davidgwking/adhere.svg?style=flat&branch=master
 [coveralls-url]: https://coveralls.io/r/davidgwking/adhere
 [saucelabs-url]: https://saucelabs.com/u/adhere
-[saucelabs-image]: https://saucelabs.com/buildstatus/adhere
+[saucelabs-image]: https://saucelabs.com/browser-matrix/adhere.svg
