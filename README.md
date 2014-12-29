@@ -3,6 +3,7 @@
 # adhere
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
+
 [![Sauce Test Status][saucelabs-image]][saucelabs-url]
 
 *adhere* is a simple schema\-based data validator, and strives for [JSONSchema](http://json-schema.org/latest/json-schema-validation.html) compliance.
