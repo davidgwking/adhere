@@ -153,7 +153,7 @@ A function that should return a `boolean` indicating whether the value conforms 
 {
   type: 'number',
   conform: function (a) {
-    // valid is value is even
+    // valid if value is even
     return !(a % 2);
   }
 }
