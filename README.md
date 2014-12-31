@@ -28,7 +28,7 @@ Type-specific keywords allow users to declare multiple possible types for data. 
   type: ['object', 'null'],
   // start: object-specific validation keywords
   properties: {
-    // property `a` is expect to be a number and must exist
+    // property `a` is expected to be a number and must exist
     a: {type: 'number', required: true}
   },
   additionalProperties: false // only property `a` is allowed
