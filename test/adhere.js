@@ -70,6 +70,6 @@ describe('adhere', function () {
 
     });
 
-  })
+  });
 
 });
