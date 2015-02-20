@@ -1,4 +1,4 @@
-**THIS REPOSITORY IS A WORK IN PROGRESS**
+**THIS REPOSITORY IS ABANDONED**
 
 # adhere
 [![Build Status][travis-image]][travis-url]
